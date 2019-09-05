@@ -1,4 +1,5 @@
 from imageai.Detection.Custom import DetectionModelTrainer
+import os
 
 execution_path = os.getcwd()
 
