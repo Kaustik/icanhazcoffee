@@ -6,8 +6,8 @@
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>640</width>
-		<height>480</height>
+		<width>192</width>
+		<height>192</height>
 		<depth>1</depth>
 	</size>
 	<segmented>0</segmented>
@@ -17,10 +17,22 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>82</xmin>
-			<ymin>143</ymin>
-			<xmax>138</xmax>
-			<ymax>197</ymax>
+			<xmin>29</xmin>
+			<ymin>67</ymin>
+			<xmax>84</xmax>
+			<ymax>124</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>empty coffee</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>88</xmin>
+			<ymin>63</ymin>
+			<xmax>141</xmax>
+			<ymax>124</ymax>
 		</bndbox>
 	</object>
 </annotation>
