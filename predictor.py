@@ -14,8 +14,8 @@ detector.setModelPath(detection_model_path="models/detection_model-ex-004.h5")
 detector.setJsonPath(configuration_json="json/detection_config.json")
 detector.loadModel()
 
-#latest_image = newest("/home/ftp")
-latest_image = "snapshot.jpg"
+latest_image = newest("/home/ftp")
+#latest_image = "snapshot.jpg"
 
 detections = detector.detectObjectsFromImage(latest_image, minimum_percentage_probability=60, output_image_path="image-new.jpg")
 
