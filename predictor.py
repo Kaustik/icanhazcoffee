@@ -20,6 +20,7 @@ detector.setJsonPath(configuration_json="json/detection_config.json")
 detector.loadModel()
 
 latest_image = newest("/home/ftp")
+print(latest_image)
 #latest_image = "snapshot.jpg"
 
 detections = detector.detectObjectsFromImage(latest_image, minimum_percentage_probability=60, output_image_path="image-new.jpg")
