@@ -84,13 +84,11 @@ app.get('/oauth', function(req, res) {
 
 // Route the endpoint that our slash command will point to and send back a simple response to indicate that ngrok is working
 app.post('/icanhascoffee', function(req, res) {
-    //console.log(req);
-    res.send('Kaffe?!');
-    /*runPy.then(function(fromRunpy) {
+    runPy.then(function(fromRunpy) {
         res.send(fromRunpy);
     }).catch(function (error) {
         console.error(error)
-    });*/
+    });
 });
 
 setInterval(function() {
