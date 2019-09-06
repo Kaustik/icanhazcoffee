@@ -24,7 +24,7 @@ var pathToPy = process.argv.slice(2);
 let runPy = new Promise(function(success, nosuccess) {
 
     const { spawn } = require('child_process');
-    const pyprog = spawn('python', [pathToPy]);
+    const pyprog = spawn('python3', [pathToPy]);
 
     pyprog.stdout.on('data', function(data) {
 
@@ -99,4 +99,4 @@ setInterval(function() {
             console.log('Message sent: ', res.ts);
         })();
     });
-}, 3000);
+}, 300000);
