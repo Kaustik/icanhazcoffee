@@ -18,8 +18,8 @@ execution_path = os.getcwd()
 
 detector = CustomObjectDetection()
 detector.setModelTypeAsYOLOv3()
-detector.setModelPath(detection_model_path="models/detection_model-ex-004.h5")
-detector.setJsonPath(configuration_json="json/detection_config.json")
+detector.setModelPath(detection_model_path=execution_path + "/models/detection_model-ex-004.h5")
+detector.setJsonPath(configuration_json=execution_path + "/json/detection_config.json")
 detector.loadModel()
 
 latest_image = newest("/home/ftp")
