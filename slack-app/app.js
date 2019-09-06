@@ -4,6 +4,16 @@ var request = require('request');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const { WebClient } = require('@slack/web-api');
+
+// An access token (from your Slack app or custom integration - xoxp, xoxb)
+const token = process.env.SLACK_TOKEN;
+
+const web = new WebClient(token);
+
+// This argument can be a channel ID, a DM ID, a MPDM ID, or a group ID
+const conversationId = 'CN2U03EGY';
+
 // Store our app's ID and Secret. These we got from Step 1.
 // For this tutorial, we'll keep your API credentials right here. But for an actual app, you'll want to  store them securely in environment variables. 
 var clientId = process.env.CLIENTID;
@@ -78,3 +88,15 @@ app.post('/icanhascoffee', function(req, res) {
         res.send(fromRunpy);
     });
 });
+
+setInterval(function() {
+    runPy.then(function(fromRunpy) {
+        (async () => {
+            // See: https://api.slack.com/methods/chat.postMessage
+            const res = await web.chat.postMessage({ channel: conversationId, text: fromRunpy.toString().replace(/\r?\n|\r/g, " ") + " chance that there is coffee." });
+
+            // `res` contains information about the posted message
+            console.log('Message sent: ', res.ts);
+        })();
+    });
+}, 3000);
