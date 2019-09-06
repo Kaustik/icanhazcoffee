@@ -87,7 +87,8 @@ app.post('/icanhascoffee', function(req, res) {
     runPy.then(function(fromRunpy) {
         res.send(fromRunpy);
     }).catch(function (error) {
-        console.error(error)
+        console.log('error');
+        console.error(error);
     });
 });
 
