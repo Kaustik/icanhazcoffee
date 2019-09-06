@@ -1,5 +1,9 @@
-from imageai.Detection.Custom import CustomObjectDetection
 import os
+import warnings
+
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore")
+    from imageai.Detection.Custom import CustomObjectDetection
 
 def newest(path):
     files = os.listdir(path)
