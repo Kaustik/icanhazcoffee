@@ -1,10 +1,5 @@
 from imageai.Detection.Custom import CustomObjectDetection
 import os
-import sys
-
-if not sys.warnoptions:
-    import warnings
-    warnings.simplefilter("ignore")
 
 def newest(path):
     files = os.listdir(path)
@@ -20,12 +15,12 @@ detector.setJsonPath(configuration_json="json/detection_config.json")
 detector.loadModel()
 
 latest_image = newest("/home/ftp")
-print(latest_image)
-#latest_image = "snapshot.jpg"
+#print(latest_image)
 
 detections = detector.detectObjectsFromImage(latest_image, minimum_percentage_probability=60, output_image_path="image-new.jpg")
 
 for detection in detections:
-    print(detection["name"], " : ", detection["percentage_probability"], " : ", detection["box_points"])
-
-
+    if (detection["name"] == "not empty coffee"):
+        print("Det är", round(detection["percentage_probability"], 2), "% chans att det finns kaffe!")
+    else:
+        print("Mest troligt (", detection["percentage_probability"], ") finns det inget kaffe :(")
