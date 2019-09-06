@@ -14,7 +14,7 @@ def newest(path):
     paths = [os.path.join(path, basename) for basename in files]
     return max(paths, key=os.path.getctime)
 
-execution_path = os.getcwd()
+execution_path = os.path.dirname(os.path.abspath(__file__))
 
 detector = CustomObjectDetection()
 detector.setModelTypeAsYOLOv3()
@@ -24,7 +24,7 @@ detector.loadModel()
 
 latest_image = newest("/home/ftp")
 
-detections = detector.detectObjectsFromImage(latest_image, minimum_percentage_probability=60, output_image_path="image-new.jpg")
+detections = detector.detectObjectsFromImage(latest_image, minimum_percentage_probability=60, output_image_path=execution_path + "image-new.jpg")
 
 for detection in detections:
     if (detection["name"] == "not empty coffee"):
