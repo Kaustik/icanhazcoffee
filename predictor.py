@@ -3,7 +3,11 @@ import warnings
 
 with warnings.catch_warnings():
     warnings.filterwarnings("ignore")
+    import sys
+    stderr = sys.stderr
+    sys.stderr = open(os.devnull, 'w')
     from imageai.Detection.Custom import CustomObjectDetection
+    sys.stderr = stderr
 
 def newest(path):
     files = os.listdir(path)
@@ -19,7 +23,6 @@ detector.setJsonPath(configuration_json="json/detection_config.json")
 detector.loadModel()
 
 latest_image = newest("/home/ftp")
-#print(latest_image)
 
 detections = detector.detectObjectsFromImage(latest_image, minimum_percentage_probability=60, output_image_path="image-new.jpg")
 
