@@ -86,6 +86,8 @@ app.get('/oauth', function(req, res) {
 app.post('/icanhascoffee', function(req, res) {
     runPy.then(function(fromRunpy) {
         res.send(fromRunpy);
+    }).catch(function (error) {
+        console.error(error)
     });
 });
 
