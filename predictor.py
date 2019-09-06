@@ -6,6 +6,11 @@ if not sys.warnoptions:
     import warnings
     warnings.simplefilter("ignore")
 
+def newest(path):
+    files = os.listdir(path)
+    paths = [os.path.join(path, basename) for basename in files]
+    return max(paths, key=os.path.getctime)
+
 execution_path = os.getcwd()
 
 detector = CustomObjectDetection()
@@ -23,7 +28,3 @@ for detection in detections:
     print(detection["name"], " : ", detection["percentage_probability"], " : ", detection["box_points"])
 
 
-def newest(path):
-    files = os.listdir(path)
-    paths = [os.path.join(path, basename) for basename in files]
-    return max(paths, key=os.path.getctime)
