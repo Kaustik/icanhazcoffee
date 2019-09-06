@@ -31,7 +31,7 @@ let runPy = new Promise(function(success, nosuccess) {
 var app = express();
 
 // Again, we define a port we want to listen to
-const PORT=7892;
+const PORT=process.env.PORT;
 
 // Lets start our server
 app.listen(PORT, function () {
