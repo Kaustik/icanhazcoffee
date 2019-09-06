@@ -18,4 +18,4 @@ This is the backend for a slack app.
         - Request URL: http://url-to-the-server.com/icanhascoffee
 
 ### Start the server
-  - run "node app.js <path-to-python>"
+  - run "node app.js /path/to/python.py"
