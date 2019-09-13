@@ -96,7 +96,7 @@ setInterval(function() {
     runPy.then(function(fromRunpy) {
         (async () => {
             // See: https://api.slack.com/methods/chat.postMessage
-            const res = await web.chat.postMessage({ channel: conversationId, text: fromRunpy.toString().replace(/\r?\n|\r/g, " ") + " chance that there is coffee." });
+            const res = await web.chat.postMessage({ channel: conversationId, text: fromRunpy.toString().replace(/\r?\n|\r/g, " ") });
 
             // `res` contains information about the posted message
             console.log('Message sent: ', res.ts);
