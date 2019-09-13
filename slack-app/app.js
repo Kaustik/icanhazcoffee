@@ -81,7 +81,7 @@ app.get('/oauth', function(req, res) {
                 console.log(error);
             } else {
                 res.json(body);
-
+                res.end();
             }
         })
     }
@@ -91,6 +91,7 @@ app.get('/oauth', function(req, res) {
 app.post('/icanhascoffee', function(req, res) {
     runPy.then(function(fromRunpy) {
         res.send(fromRunpy);
+        res.end();
     }).catch(function (error) {
         console.log('error');
         console.error(error.toString());
