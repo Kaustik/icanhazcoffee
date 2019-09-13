@@ -4,6 +4,8 @@ var request = require('request');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const nocache = require('nocache');
+
 const { WebClient } = require('@slack/web-api');
 
 // An access token (from your Slack app or custom integration - xoxp, xoxb)
@@ -39,6 +41,9 @@ let runPy = new Promise(function(success, nosuccess) {
 
 // Instantiates Express and assigns our app variable to it
 var app = express();
+
+app.use(nocache());
+app.set('etag', false);
 
 // Again, we define a port we want to listen to
 const PORT=process.env.PORT;
