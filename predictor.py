@@ -50,3 +50,5 @@ for detection in detections:
         print("Det är", round(detection["percentage_probability"], 2), "% chans att det finns kaffe i en av kannorna!")
     elif (detection["name"] == "empty coffee"):
         print("Det är troligtvis (", round(detection["percentage_probability"], 2), "%) inget kaffe i en av kannorna.")
+
+sys.stdout.flush()
